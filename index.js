@@ -13,17 +13,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.urlencoded({ extended: false }));
 
-var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "project"
-});
+// var con = mysql.createConnection({
+//     host: "localhost",
+//     user: "root",
+//     password: "",
+//     database: "project"
+// });
 
-con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected to the database!");
-});
+// con.connect(function(err) {
+//     if (err) throw err;
+//     console.log("Connected to the database!");
+// });
 
 // START OF PAGES
 app.get('/', function(req, res) {
@@ -35,11 +35,12 @@ app.post('/', function(req, res) {
     var name = post.name;
     var email = post.email;
     var phone = post.phone;
-    const query = `INSERT INTO information (name,email,phone) VALUES ('${name}','${email}', '${phone}')`;
-    con.query(query, (error, results) => {
-      console.log('Inserted Row ID:', results.insertId);
-      res.render('index');
-    });
+    // const query = `INSERT INTO information (name,email,phone) VALUES ('${name}','${email}', '${phone}')`;
+    // con.query(query, (error, results) => {
+    //   console.log('Inserted Row ID:', results.insertId);
+    //   res.render('index');
+    // });
+    console.log(post)
 });
 
 
